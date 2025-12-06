@@ -11,11 +11,19 @@
   ],
   "routes": [
     {
-      "handle": "filesystem"
+      "src": "/assets/(.*)",
+      "dest": "/build/assets/$1",
+      "check": true
+    },
+    {
+      "src": "/(.+\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))$",
+      "dest": "/build/$1",
+      "check": true
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/index.html",
+      "check": true
     }
   ],
   "framework": "docusaurus"

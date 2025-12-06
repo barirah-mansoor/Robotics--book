@@ -29,7 +29,14 @@ function HomepageHeader() {
             </Link>
             <Link
               className="button button--secondary button--lg"
-              to="#chaptersSection">
+              to="#chapters-section"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('chapters-section');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}>
               📖 Browse Chapters
             </Link>
           </div>
@@ -99,7 +106,7 @@ function HomepageChapters() {
   ];
 
   return (
-    <section id="chaptersSection" className={clsx('homepage-chapters', styles.chaptersSection)}>
+    <section id="chapters-section" className={clsx('homepage-chapters', styles.chaptersSection)}>
       <div className="container">
         <div className={styles.sectionHeader}>
           <Heading as="h2" className={styles.sectionTitle}>

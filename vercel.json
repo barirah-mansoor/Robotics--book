@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
+      "src": "website/package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "build"
@@ -12,11 +12,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/website/build/index.html"
     }
-  ],
-  "github": {
-    "enabled": true,
-    "autoJobEnabled": true
-  }
+  ]
 }

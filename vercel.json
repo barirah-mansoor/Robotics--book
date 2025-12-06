@@ -11,24 +11,9 @@
   ],
   "routes": [
     {
-      "src": "^/assets/(.*)$",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "^/img/(.*)$",
-      "dest": "/img/$1"
-    },
-    {
-      "src": "^/static/(.*)$",
-      "dest": "/static/$1"
-    },
-    {
-      "src": "^/.*\\.\\w+$",
-      "dest": "/$0"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/index.html",
+      "check": true
     }
   ],
   "framework": "docusaurus"

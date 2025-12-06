@@ -29,14 +29,7 @@ function HomepageHeader() {
             </Link>
             <Link
               className="button button--secondary button--lg"
-              to="#chapters-section"
-              onClick={(e) => {
-                e.preventDefault();
-                const element = document.getElementById('chapters-section');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}>
+              to="/docs/introduction-to-physical-ai">
               📖 Browse Chapters
             </Link>
           </div>

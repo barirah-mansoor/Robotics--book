@@ -15,7 +15,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://humbalali.github.io/',
+  url: 'https://humaniod-robotics-book.vercel.app/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For Vercel deployment to root domain
   baseUrl: '/',

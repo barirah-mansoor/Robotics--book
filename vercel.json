@@ -9,6 +9,14 @@
       }
     }
   ],
-  "framework": "docusaurus",
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
   "rootDirectory": "website"
 }

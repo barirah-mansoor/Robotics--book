@@ -19,7 +19,7 @@ const config: Config = {
   // Set the /<baseUrl>/ pathname under which your site is served
   // For Vercel deployment to root domain
   baseUrl: '/',
-  // Forcing rebuild
+  // Forcing rebuild 2
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.

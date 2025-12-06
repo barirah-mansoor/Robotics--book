@@ -15,9 +15,5 @@
       "dest": "/index.html",
       "check": true
     }
-  ],
-  "github": {
-    "enabled": true,
-    "autoJobEnabled": true
-  }
+  ]
 }

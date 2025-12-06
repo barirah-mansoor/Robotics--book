@@ -16,6 +16,5 @@
       "check": true
     }
   ],
-  "framework": "docusaurus",
-  "rootDirectory": "website"
+  "framework": "docusaurus"
 }

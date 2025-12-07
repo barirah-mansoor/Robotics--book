@@ -4,6 +4,7 @@ dist/
 build/
 *.log
 .env*
+.claude/
 
 # Python
 __pycache__/

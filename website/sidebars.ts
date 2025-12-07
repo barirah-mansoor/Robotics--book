@@ -16,11 +16,11 @@ const sidebars: SidebarsConfig = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
   tutorialSidebar: [
     'introduction-to-physical-ai',
-    'basics-of-humanoid-robotics',
-    'ros2-fundamentals',
-    'digital-twin-simulation',
-    'vision-language-action-systems',
-    'capstone-ai-robot-pipeline',
+    'robot-hardware-mechanics',
+    'robot-operating-systems-ros',
+    'robot-perception-sensors',
+    'robot-control-planning',
+    'robot-applications-integration',
   ],
 
   // But you can create a sidebar manually

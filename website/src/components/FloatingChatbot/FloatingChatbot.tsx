@@ -53,7 +53,7 @@ const FloatingChatbot: React.FC = () => {
 
     try {
       // Call the FastAPI backend
-      const response = await fetch('http://localhost:8001/query', {
+      const response = await fetch('https://humaniod-robotics-book-production.up.railway.app/query', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

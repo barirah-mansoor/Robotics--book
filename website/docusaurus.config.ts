@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Physical AI & Humanoid Robotics — Essentials',
-  tagline: 'A short, clean, professional AI-Native textbook with RAG chatbot.',
+  tagline: 'Book By Barirah Mansoor',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -23,8 +23,8 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'HumbalAli',
-  projectName: 'humaniod-robotics-book',
+  organizationName: 'barirah-mansoor',
+  projectName: 'Robotics--book',
 
   onBrokenLinks: 'throw',
 
@@ -45,7 +45,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/HumbalAli/humaniod-robotics-book/tree/main/website/',
+            'https://github.com/barirah-mansoor/Robotics--book/tree/main/website/',
           remarkPlugins: [require('remark-math')],
           rehypePlugins: [require('rehype-katex')],
         },
@@ -58,7 +58,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/HumbalAli/humaniod-robotics-book/tree/main/website/',
+            'https://github.com/barirah-mansoor/Robotics--book/tree/main/website/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -92,13 +92,18 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/HumbalAli/humaniod-robotics-book',
+          href: 'https://github.com/barirah-mansoor/Robotics--book',
           label: 'GitHub',
           position: 'right',
         },
       ],
     },
     stylesheets: [
+      {
+        href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap',
+        type: 'text/css',
+        rel: 'stylesheet',
+      },
       {
         href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
         type: 'text/css',
@@ -144,12 +149,12 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/HumbalAli/humaniod-robotics-book',
+              href: 'https://github.com/barirah-mansoor/Robotics--book',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Robotics Book, Inc. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

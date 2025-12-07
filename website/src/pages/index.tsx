@@ -50,51 +50,51 @@ function HomepageChapters() {
   const chapters = [
     {
       id: '01-introduction-to-physical-ai',
-      title: 'Introduction to Physical AI',
-      description: 'Explore the fundamentals of embodied artificial intelligence and its applications in robotics.',
+      title: 'Introduction to Robotics',
+      description: 'Explore the fundamentals of robotics, history, components, and applications.',
       icon: '🤖',
-      color: 'blue',
+      color: 'pink',
       link: '/docs/introduction-to-physical-ai'
     },
     {
-      id: '02-basics-of-humanoid-robotics',
-      title: 'Basics of Humanoid Robotics',
-      description: 'Learn about the anatomy, kinematics, and dynamics of humanoid robots.',
+      id: '02-robot-hardware-mechanics',
+      title: 'Robot Hardware & Mechanics',
+      description: 'Learn about mechanical structure, actuators, sensors, and power systems.',
       icon: '🦾',
       color: 'green',
-      link: '/docs/basics-of-humanoid-robotics'
+      link: '/docs/robot-hardware-mechanics'
     },
     {
-      id: '03-ros2-fundamentals',
-      title: 'ROS 2 Fundamentals',
-      description: 'Master the Robot Operating System 2 for building robotic applications.',
+      id: '03-robot-operating-systems-ros',
+      title: 'Robot Operating Systems (ROS)',
+      description: 'Master the Robot Operating System for building robotic applications.',
       icon: '📡',
       color: 'purple',
-      link: '/docs/ros2-fundamentals'
+      link: '/docs/robot-operating-systems-ros'
     },
     {
-      id: '04-digital-twin-simulation',
-      title: 'Digital Twin Simulation',
-      description: 'Create virtual replicas of robots for safe development and testing.',
+      id: '04-robot-perception-sensors',
+      title: 'Robot Perception & Sensors',
+      description: 'Understand vision systems, range sensors, and environmental mapping.',
       icon: '🎮',
       color: 'orange',
-      link: '/docs/digital-twin-simulation'
+      link: '/docs/robot-perception-sensors'
     },
     {
-      id: '05-vision-language-action-systems',
-      title: 'Vision-Language-Action Systems',
-      description: 'Integrate perception, language understanding, and robotic control.',
+      id: '05-robot-control-planning',
+      title: 'Robot Control & Planning',
+      description: 'Explore motion planning algorithms and control systems for robots.',
       icon: '👁️',
       color: 'teal',
-      link: '/docs/vision-language-action-systems'
+      link: '/docs/robot-control-planning'
     },
     {
-      id: '06-capstone-ai-robot-pipeline',
-      title: 'Capstone AI Robot Pipeline',
-      description: 'Build a complete AI-robot system integrating all concepts learned.',
+      id: '06-robot-applications-integration',
+      title: 'Robot Applications & Integration',
+      description: 'Discover industrial, service, and mobile robotics applications.',
       icon: '🚀',
       color: 'indigo',
-      link: '/docs/capstone-ai-robot-pipeline'
+      link: '/docs/robot-applications-integration'
     }
   ];
 

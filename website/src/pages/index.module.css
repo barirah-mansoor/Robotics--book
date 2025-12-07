@@ -12,11 +12,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  background: linear-gradient(135deg, #fff5f7 0%, #f8bbd0 100%); /* Light pink gradient */
 }
 
 [data-theme='dark'] .heroBanner {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: linear-gradient(135deg, #4a0025 0%, #2a0016 100%); /* Dark pink gradient */
 }
 
 .heroContent {
@@ -30,22 +30,22 @@
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
-  color: #3b82f6; /* Light blue in light mode */
+  color: #f48fb1; /* Light pink in light mode */
 }
 
 [data-theme='dark'] .hero__title {
-  color: #60a5fa; /* Lighter blue in dark mode */
+  color: #f8bbd0; /* Lighter pink in dark mode */
 }
 
 .hero__subtitle {
   font-size: 1.5rem;
-  color: #4f83cc;
+  color: #f06292; /* Pink color */
   margin-bottom: 2.5rem;
   line-height: 1.6;
 }
 
 [data-theme='dark'] .hero__subtitle {
-  color: #93c5fd;
+  color: #fde0e6; /* Lighter pink in dark mode */
 }
 
 .buttons {
@@ -56,25 +56,25 @@
 }
 
 .button--primary {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  background: linear-gradient(135deg, #f48fb1 0%, #f06292 100%); /* Light pink gradient */
   border: none;
   font-weight: 600;
   padding: 1rem 2rem;
   border-radius: 12px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 15px rgba(244, 143, 177, 0.3); /* Pink shadow */
 }
 
 .button--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 8px 25px rgba(244, 143, 177, 0.4); /* Pink shadow */
   text-decoration: none;
 }
 
 .button--secondary {
   background: transparent;
-  border: 2px solid #2563eb;
-  color: #2563eb;
+  border: 2px solid #f48fb1; /* Pink border */
+  color: #f48fb1; /* Pink text */
   font-weight: 600;
   padding: 1rem 2rem;
   border-radius: 12px;
@@ -82,19 +82,19 @@
 }
 
 [data-theme='dark'] .button--secondary {
-  border: 2px solid #3b82f6;
-  color: #3b82f6;
+  border: 2px solid #f8bbd0; /* Lighter pink for dark mode */
+  color: #f8bbd0; /* Lighter pink for dark mode */
 }
 
 .button--secondary:hover {
-  background: #2563eb;
+  background: #f48fb1; /* Pink background */
   color: white;
   transform: translateY(-2px);
   text-decoration: none;
 }
 
 [data-theme='dark'] .button--secondary:hover {
-  background: #3b82f6;
+  background: #f8bbd0; /* Lighter pink for dark mode */
 }
 
 /* Animated Background Elements */
@@ -151,11 +151,11 @@
 /* Chapters Section */
 .chaptersSection {
   padding: 6rem 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, #fff5f7 0%, #f8bbd0 100%); /* Light pink gradient */
 }
 
 [data-theme='dark'] .chaptersSection {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(135deg, #4a0025 0%, #2a0016 100%); /* Dark pink gradient */
 }
 
 .sectionHeader {
@@ -166,23 +166,23 @@
 .sectionTitle {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #880e4f; /* Dark pink */
   margin-bottom: 1rem;
 }
 
 [data-theme='dark'] .sectionTitle {
-  color: #f8fafc;
+  color: #fde0e6; /* Light pink in dark mode */
 }
 
 .sectionSubtitle {
   font-size: 1.25rem;
-  color: #64748b;
+  color: #f06292; /* Pink color */
   max-width: 600px;
   margin: 0 auto;
 }
 
 [data-theme='dark'] .sectionSubtitle {
-  color: #cbd5e1;
+  color: #f8bbd0; /* Lighter pink in dark mode */
 }
 
 /* Chapters Grid */
@@ -230,6 +230,28 @@
   transition: transform 0.3s ease;
 }
 
+.chapterCard--pink::before {
+  background: linear-gradient(90deg, #f48fb1 0%, #f06292 100%); /* Light pink gradient */
+}
+
+[data-theme='dark'] .chapterCard--pink {
+  background: #4a0025; /* Dark pink background */
+  border: 1px solid rgba(244, 143, 177, 0.2);
+}
+
+.chapterCard--pink .chapterId {
+  color: #f48fb1; /* Pink color */
+  background: rgba(244, 143, 177, 0.1); /* Light pink background */
+}
+
+.chapterCard--pink .readMore {
+  color: #f48fb1; /* Pink color */
+}
+
+[data-theme='dark'] .chapterCard--pink .readMore {
+  color: #f8bbd0; /* Lighter pink for dark mode */
+}
+
 .chapterCard:hover::before {
   transform: scaleX(1);
 }
@@ -254,45 +276,45 @@
 
 .chapterDescription {
   font-size: 1.1rem;
-  color: #64748b;
+  color: #880e4f; /* Dark pink */
   margin-bottom: 1.5rem;
   line-height: 1.6;
 }
 
 [data-theme='dark'] .chapterDescription {
-  color: #cbd5e1;
+  color: #f8bbd0; /* Lighter pink in dark mode */
 }
 
 .chapterMeta {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid #f8bbd0; /* Light pink border */
   padding-top: 1.5rem;
   margin-top: auto;
 }
 
 [data-theme='dark'] .chapterMeta {
-  border-top: 1px solid #334155;
+  border-top: 1px solid #880e4f; /* Dark pink border in dark mode */
 }
 
 .chapterId {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #2563eb;
-  background: rgba(37, 99, 235, 0.1);
+  color: #f48fb1; /* Pink color */
+  background: rgba(244, 143, 177, 0.1); /* Light pink background */
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
 }
 
 .readMore {
   font-weight: 600;
-  color: #2563eb;
+  color: #f48fb1; /* Pink color */
   transition: transform 0.2s ease;
 }
 
 [data-theme='dark'] .readMore {
-  color: #60a5fa;
+  color: #f8bbd0; /* Lighter pink in dark mode */
 }
 
 .chapterCard:hover .readMore {
@@ -302,11 +324,11 @@
 /* Chatbot Section */
 .chatbotSection {
   padding: 6rem 0;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  background: linear-gradient(135deg, #fff5f7 0%, #f8bbd0 100%); /* Light pink gradient */
 }
 
 [data-theme='dark'] .chatbotSection {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(135deg, #4a0025 0%, #2a0016 100%); /* Dark pink gradient */
 }
 
 .chatbotContainer {

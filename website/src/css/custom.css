@@ -4,70 +4,70 @@
  * work well for content-centric websites.
  */
 
-/* Enhanced color scheme with modern gradients and vibrant colors */
+/* Enhanced color scheme with modern gradients and light pink colors */
 :root {
-  --ifm-color-primary: #2563eb; /* Modern blue */
-  --ifm-color-primary-dark: #1d4ed8;
-  --ifm-color-primary-darker: #1e40af;
-  --ifm-color-primary-darkest: #1e3a8a;
-  --ifm-color-primary-light: #3b82f6;
-  --ifm-color-primary-lighter: #60a5fa;
-  --ifm-color-primary-lightest: #93c5fd;
-  --ifm-color-secondary: #f8fafc;
-  --ifm-color-success: #10b981;
-  --ifm-color-info: #0ea5e9;
-  --ifm-color-warning: #f59e0b;
-  --ifm-color-danger: #ef4444;
-  --ifm-color-gray: #64748b;
+  --ifm-color-primary: #f48fb1; /* Light pink */
+  --ifm-color-primary-dark: #f06292; /* Slightly darker pink */
+  --ifm-color-primary-darker: #ec4899; /* Medium pink */
+  --ifm-color-primary-darkest: #d81b60; /* Deeper pink */
+  --ifm-color-primary-light: #f8bbd0; /* Lighter pink */
+  --ifm-color-primary-lighter: #fde0e6; /* Very light pink */
+  --ifm-color-primary-lightest: #ffebee; /* Lightest pink */
+  --ifm-color-secondary: #fdf0f6; /* Very light pink background */
+  --ifm-color-success: #81c784; /* Light green */
+  --ifm-color-info: #81d4fa; /* Light blue */
+  --ifm-color-warning: #ffb74d; /* Light orange */
+  --ifm-color-danger: #e57373; /* Light red */
+  --ifm-color-gray: #b0bec5; /* Light gray */
 
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(244, 143, 177, 0.1); /* Light pink highlight */
 
   /* Modern card styling */
   --ifm-card-background-color: #ffffff;
   --ifm-card-border-radius: 16px;
-  --ifm-card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --ifm-card-shadow: 0 10px 25px -5px rgba(244, 143, 177, 0.1), 0 8px 10px -6px rgba(244, 143, 177, 0.05); /* Light pink shadow */
 
   /* Modern gradients */
-  --ifm-gradient-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-  --ifm-gradient-secondary: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  --ifm-gradient-accent: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  --ifm-gradient-warning: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  --ifm-gradient-purple: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-  --ifm-gradient-pink: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+  --ifm-gradient-primary: linear-gradient(135deg, #f48fb1 0%, #f06292 100%); /* Light pink gradient */
+  --ifm-gradient-secondary: linear-gradient(135deg, #fdf0f6 0%, #fae6ee 100%); /* Light pink gradient */
+  --ifm-gradient-accent: linear-gradient(135deg, #81c784 0%, #4caf50 100%); /* Light green gradient */
+  --ifm-gradient-warning: linear-gradient(135deg, #ffb74d 0%, #ffa726 100%); /* Light orange gradient */
+  --ifm-gradient-purple: linear-gradient(135deg, #ce93d8 0%, #ba68c8 100%); /* Light purple gradient */
+  --ifm-gradient-pink: linear-gradient(135deg, #f8bbd0 0%, #f48fb1 100%); /* Light pink gradient */
 
   /* Modern spacing */
   --ifm-spacing-vertical: 2.5rem;
   --ifm-spacing-horizontal: 2.5rem;
 
   /* Modern typography */
-  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ifm-font-family-base: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
   --ifm-h1-font-size: 3rem;
   --ifm-h2-font-size: 2.25rem;
   --ifm-h3-font-size: 1.5rem;
   --ifm-h4-font-size: 1.25rem;
 }
 
-/* Dark mode enhancements */
+/* Dark mode enhancements with light pink theme */
 [data-theme='dark'] {
-  --ifm-color-primary: #3b82f6;
-  --ifm-color-primary-dark: #2563eb;
-  --ifm-color-primary-darker: #1d4ed8;
-  --ifm-color-primary-darkest: #1e3a8a;
-  --ifm-color-primary-light: #60a5fa;
-  --ifm-color-primary-lighter: #93c5fd;
-  --ifm-color-primary-lightest: #bfdbfe;
-  --ifm-color-secondary: #1e293b;
-  --ifm-color-success: #34d399;
-  --ifm-color-info: #7dd3fc;
-  --ifm-color-warning: #fbbf24;
-  --ifm-color-danger: #f87171;
-  --ifm-color-gray: #94a3b8;
+  --ifm-color-primary: #f8bbd0; /* Light pink in dark mode */
+  --ifm-color-primary-dark: #f48fb1;
+  --ifm-color-primary-darker: #f06292;
+  --ifm-color-primary-darkest: #ec4899;
+  --ifm-color-primary-light: #fde0e6;
+  --ifm-color-primary-lighter: #ffebee;
+  --ifm-color-primary-lightest: #fff5f7;
+  --ifm-color-secondary: #2a0016; /* Dark pink background */
+  --ifm-color-success: #a5d6a7; /* Lighter green */
+  --ifm-color-info: #81d4fa; /* Lighter blue */
+  --ifm-color-warning: #ffcc80; /* Lighter orange */
+  --ifm-color-danger: #ef9a9a; /* Lighter red */
+  --ifm-color-gray: #eceff1; /* Lighter gray */
 
-  --ifm-card-background-color: #1e293b;
-  --ifm-card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+  --ifm-card-background-color: #4a0025; /* Dark pink card background */
+  --ifm-card-shadow: 0 10px 25px -5px rgba(244, 143, 177, 0.3), 0 8px 10px -6px rgba(244, 143, 177, 0.2); /* Light pink shadow in dark mode */
 
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --docusaurus-highlighted-code-line-bg: rgba(244, 143, 177, 0.3); /* Light pink highlight in dark mode */
 }
 
 /* Modern typography with better hierarchy */
@@ -147,25 +147,193 @@
   border: none;
 }
 
-/* Enhanced navbar with glassmorphism effect */
+/* Enhanced navbar with pink theme */
 .navbar {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 6px -1px rgba(244, 143, 177, 0.1);
+  background: linear-gradient(90deg, #f48fb1 0%, #f8bbd0 100%); /* Light pink gradient */
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(244, 143, 177, 0.2);
 }
 
 [data-theme='dark'] .navbar {
-  background: rgba(30, 41, 59, 0.95);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(90deg, #880e4f 0%, #ad1457 100%); /* Dark pink gradient */
+  border-bottom: 1px solid rgba(248, 187, 208, 0.3);
 }
 
 .navbar__title {
   font-weight: 700;
-  background: var(--ifm-gradient-primary);
+  background: linear-gradient(90deg, #ffffff 0%, #fde0e6 100%); /* White to light pink */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.navbar__brand {
+  color: white !important;
+}
+
+.navbar__link {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.navbar__link:hover {
+  color: white !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Pink-themed menu items */
+.menu__link {
+  color: #880e4f !important;
+}
+
+[data-theme='dark'] .menu__link {
+  color: #f8bbd0 !important;
+}
+
+.menu__link:hover {
+  background-color: rgba(244, 143, 177, 0.1) !important;
+}
+
+/* Pink-themed sidebar */
+.sidebar {
+  background: linear-gradient(to bottom, #fde0e6 0%, #fdf0f6 100%) !important;
+}
+
+[data-theme='dark'] .sidebar {
+  background: linear-gradient(to bottom, #4a0025 0%, #2a0016 100%) !important;
+}
+
+/* Pink-themed main content */
+.main-wrapper {
+  background: linear-gradient(135deg, #fff5f7 0%, #fdf0f6 100%);
+}
+
+[data-theme='dark'] .main-wrapper {
+  background: linear-gradient(135deg, #1a000d 0%, #0f0008 100%);
+}
+
+/* Pink-themed headings */
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  color: #c2185b !important; /* Dark pink */
+}
+
+[data-theme='dark'] .markdown h1,
+[data-theme='dark'] .markdown h2,
+[data-theme='dark'] .markdown h3,
+[data-theme='dark'] .markdown h4 {
+  color: #f8bbd0 !important; /* Light pink */
+}
+
+/* Pink-themed links */
+.markdown a {
+  color: #e91e63 !important; /* Pink */
+}
+
+[data-theme='dark'] .markdown a {
+  color: #f48fb1 !important; /* Light pink */
+}
+
+/* Pink-themed buttons */
+.button--primary {
+  background: linear-gradient(135deg, #f48fb1 0%, #ec4899 100%) !important;
+  border: none !important;
+}
+
+.button--secondary {
+  background: transparent !important;
+  border: 2px solid #f48fb1 !important;
+  color: #c2185b !important;
+}
+
+[data-theme='dark'] .button--secondary {
+  border: 2px solid #f8bbd0 !important;
+  color: #f8bbd0 !important;
+}
+
+/* Pink-themed code blocks */
+.code-block {
+  border: 1px solid #f8bbd0 !important;
+  background: rgba(244, 143, 177, 0.03) !important;
+}
+
+[data-theme='dark'] .code-block {
+  border: 1px solid #880e4f !important;
+  background: rgba(136, 14, 79, 0.1) !important;
+}
+
+/* Pink-themed blockquotes */
+.markdown blockquote {
+  border-left: 4px solid #f48fb1 !important;
+  background: rgba(244, 143, 177, 0.05) !important;
+}
+
+[data-theme='dark'] .markdown blockquote {
+  border-left: 4px solid #f8bbd0 !important;
+  background: rgba(248, 187, 208, 0.1) !important;
+}
+
+/* Pink-themed tables */
+.markdown table th {
+  background: linear-gradient(90deg, #f48fb1 0%, #f06292 100%) !important;
+  color: white !important;
+}
+
+.markdown table tr:nth-child(even) {
+  background-color: rgba(244, 143, 177, 0.05) !important;
+}
+
+[data-theme='dark'] .markdown table tr:nth-child(even) {
+  background-color: rgba(248, 187, 208, 0.1) !important;
+}
+
+/* Pink-themed callouts */
+.callout {
+  border-left: 4px solid #f48fb1 !important;
+}
+
+.callout-info {
+  background: rgba(244, 143, 177, 0.1) !important;
+}
+
+.callout-success {
+  background: rgba(129, 199, 132, 0.1) !important;
+}
+
+.callout-warning {
+  background: rgba(255, 183, 77, 0.1) !important;
+}
+
+.callout-danger {
+  background: rgba(229, 115, 115, 0.1) !important;
+}
+
+[data-theme='dark'] .callout {
+  border-left: 4px solid #f8bbd0 !important;
+}
+
+/* Pink-themed search */
+.navbar__search-input {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: white !important;
+}
+
+.navbar__search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Pink-themed pagination */
+.pagination-nav__link {
+  border: 1px solid #f8bbd0 !important;
+  background: rgba(244, 143, 177, 0.05) !important;
+}
+
+[data-theme='dark'] .pagination-nav__link {
+  border: 1px solid #880e4f !important;
+  background: rgba(136, 14, 79, 0.1) !important;
 }
 
 /* Enhanced sidebar styling */
@@ -185,24 +353,52 @@
   margin-right: 0.5rem;
 }
 
-/* Enhanced footer styling */
+/* Enhanced footer styling with pink theme */
 .footer {
-  background: var(--ifm-gradient-primary);
+  background: linear-gradient(90deg, #f48fb1 0%, #f06292 100%); /* Pink gradient */
   color: white;
   padding: 3rem 0;
+}
+
+[data-theme='dark'] .footer {
+  background: linear-gradient(90deg, #880e4f 0%, #ad1457 100%); /* Dark pink gradient */
 }
 
 .footer__title {
   color: white;
   margin-bottom: 1.5rem;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif !important;
 }
 
 .footer__link-item {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.3s ease;
 }
 
 .footer__link-item:hover {
-  color: white;
+  color: #fff5f7; /* Light pink on hover */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Footer links */
+.footer a {
+  color: rgba(255, 255, 255, 0.9) !important;
+  transition: all 0.3s ease;
+}
+
+.footer a:hover {
+  color: white !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Footer copyright */
+.footer__copyright {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1.5rem;
 }
 
 /* Enhanced callout styling */
@@ -304,14 +500,74 @@
   line-height: 1.6;
 }
 
-/* Enhanced features section */
+/* Enhanced hero section with pink theme */
+.hero {
+  background: linear-gradient(135deg, #fff5f7 0%, #fde0e6 100%); /* Light pink gradient */
+  color: #880e4f; /* Dark pink text */
+  padding: 6rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme='dark'] .hero {
+  background: linear-gradient(135deg, #4a0025 0%, #2a0016 100%); /* Dark pink gradient */
+  color: #f8bbd0; /* Light pink text */
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(244, 143, 177, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at bottom left, rgba(244, 143, 177, 0.1) 0%, transparent 50%);
+}
+
+[data-theme='dark'] .hero::before {
+  background: radial-gradient(circle at top right, rgba(248, 187, 208, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at bottom left, rgba(248, 187, 208, 0.1) 0%, transparent 50%);
+}
+
+.hero__title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  text-shadow: 0 2px 4px rgba(244, 143, 177, 0.1);
+  color: #c2185b !important; /* Dark pink */
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif !important;
+}
+
+[data-theme='dark'] .hero__title {
+  color: #f8bbd0 !important; /* Light pink */
+  text-shadow: 0 2px 4px rgba(248, 187, 208, 0.2);
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  color: #d81b60 !important; /* Pink */
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif !important;
+}
+
+[data-theme='dark'] .hero__subtitle {
+  color: #f48fb1 !important; /* Light pink */
+}
+
+/* Enhanced features section with pink theme */
 .features {
   padding: 5rem 0;
-  background: var(--ifm-gradient-secondary);
+  background: linear-gradient(135deg, #fdf0f6 0%, #fae6ee 100%); /* Light pink gradient */
 }
 
 [data-theme='dark'] .features {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(135deg, #2a0016 0%, #4a0025 100%); /* Dark pink gradient */
 }
 
 .features__title {

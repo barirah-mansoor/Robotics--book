@@ -1,178 +1,155 @@
-from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from typing import List, Optional
-from dotenv import load_dotenv
 import os
-
-# LlamaIndex imports
-from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, ServiceContext
-from llama_index.llms.gemini import Gemini
-from llama_index.embeddings.gemini import GeminiEmbedding
-from llama_index.core.vector_stores import SimpleVectorStore
-from llama_index.core.storage.storage_context import StorageContext
+import requests
+import xml.etree.ElementTree as ET
+import trafilatura
+from qdrant_client import QdrantClient
+from qdrant_client.models import VectorParams, Distance, PointStruct
+import cohere
+from dotenv import load_dotenv
 
 # Load environment variables from .env file
 load_dotenv()
 
-app = FastAPI(
-    title="RAG Chatbot API",
-    version="1.0.0",
-    description="API for interacting with the Retrieval Augmented Generation chatbot for the Physical AI & Humanoid Robotics Book."
+# -------------------------------------
+# CONFIG
+# -------------------------------------
+# Your Deployment Link:
+SITEMAP_URL = "https://humaniod-robotics-book.vercel.app/sitemap.xml"
+COLLECTION_NAME = "Robotics-book"
+
+# Get API keys and URLs from environment variables
+COHERE_API_KEY = os.getenv("COHERE_API_KEY")
+QDRANT_URL = os.getenv("QDRANT_URL")
+QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
+
+cohere_client = cohere.Client(COHERE_API_KEY)
+EMBED_MODEL = "embed-english-v3.0"
+
+# Connect to Qdrant Cloud
+qdrant = QdrantClient(
+    url=QDRANT_URL,
+    api_key=QDRANT_API_KEY
 )
 
-# Add CORS middleware to allow requests from the frontend
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with specific origins
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# -------------------------------------
+# Step 1 — Extract URLs from sitemap
+# -------------------------------------
+def get_all_urls(sitemap_url):
+    xml = requests.get(sitemap_url).text
+    root = ET.fromstring(xml)
 
-# --- Environment Variables ---
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") # For Google Gemini LLM and Embeddings
+    urls = []
+    for child in root:
+        loc_tag = child.find("{http://www.sitemaps.org/schemas/sitemap/0.9}loc")
+        if loc_tag is not None:
+            urls.append(loc_tag.text)
 
-if not GEMINI_API_KEY:
-    raise ValueError("GEMINI_API_KEY must be set in the .env file for LLM and embeddings")
+    print("\nFOUND URLS:")
+    for u in urls:
+        print(" -", u)
 
-# --- LlamaIndex Setup ---
-import pickle
-from llama_index.core import Settings
-
-# Configure LLM (using Google Gemini Flash as requested)
-llm = Gemini(model="gemini-2.0-flash", api_key=GEMINI_API_KEY)
-embed_model = GeminiEmbedding(model_name="text-embedding-004", api_key=GEMINI_API_KEY)
-
-# Configure LlamaIndex Settings (modern approach)
-Settings.llm = llm
-Settings.embed_model = embed_model
-
-# Load the pre-built index from file
-try:
-    with open('vector_index.pkl', 'rb') as f:
-        index = pickle.load(f)
-    print("Loaded existing vector index from vector_index.pkl")
-except FileNotFoundError:
-    print("Vector index file not found. Creating a new index with sample content.")
-
-    # Create vector store and storage context
-    vector_store = SimpleVectorStore()
-    storage_context = StorageContext.from_defaults(vector_store=vector_store)
-
-    # Create a minimal index with some sample content about robotics
-    from llama_index.core import Document
-
-    sample_content = """
-    # Physical AI & Humanoid Robotics — Essentials
-
-    ## Chapter 1: Introduction to Physical AI
-    Physical AI refers to artificial intelligence systems that interact with the physical world through embodiment.
-    Unlike traditional AI that operates in digital environments, Physical AI systems have a physical form that
-    enables them to perceive, reason, and act in real-world environments.
-
-    Key characteristics include:
-    - Embodiment: Having a physical form for environment interaction
-    - Perception: Sensing the physical world through various sensors
-    - Cognition: Processing information and making real-time decisions
-    - Action: Executing physical actions through actuators
-
-    ## Chapter 2: Basics of Humanoid Robotics
-    Humanoid robotics focuses on creating robots with human-like form and capabilities.
-    These robots typically have:
-    - Bipedal locomotion systems
-    - Multi-jointed limbs resembling human arms and legs
-    - Sensory systems for vision, hearing, and touch
-    - Control systems for coordinated movement
-
-    ## Chapter 3: ROS2 Fundamentals
-    Robot Operating System 2 (ROS2) provides frameworks for robotics development.
-    It offers:
-    - Message passing between processes
-    - Hardware abstraction
-    - Device drivers
-    - Libraries for common robotics functions
-
-    ## Chapter 4: Digital Twin Simulation
-    Digital twins create virtual replicas of physical robots for:
-    - Safe development and testing
-    - Behavior prediction
-    - Performance optimization
-    - Failure analysis in virtual environments
-
-    ## Chapter 5: Vision-Language-Action Systems
-    Modern robotics integrates:
-    - Computer vision for perception
-    - Natural language processing for communication
-    - Motor control for action execution
-    This enables robots to understand and respond to human commands.
-
-    ## Chapter 6: Capstone AI Robot Pipeline
-    A complete AI robot pipeline integrates all components:
-    - Perception systems
-    - Decision making
-    - Motion planning
-    - Actuation
-    - Learning mechanisms
-    """
-
-    sample_docs = [Document(text=sample_content)]
-    index = VectorStoreIndex.from_documents(sample_docs)
-
-# --- Pydantic Models (matching rag_api.yaml) ---
-class ContextReference(BaseModel):
-    chapter_id: str
-    section_title: str
-    page_number: int
-
-class QueryRequest(BaseModel):
-    query: str
-    user_id: str
-    session_id: Optional[str] = None
-
-class QueryResponse(BaseModel):
-    response: str
-    context_references: List[ContextReference]
+    return urls
 
 
-@app.post("/query", response_model=QueryResponse)
-async def submit_query(request: QueryRequest):
-    """Submit a natural language query to the RAG chatbot"""
-    if not request.query or not request.user_id:
-        raise HTTPException(status_code=400, detail="Query and user_id are required.")
+# -------------------------------------
+# Step 2 — Download page + extract text
+# -------------------------------------
+def extract_text_from_url(url):
+    html = requests.get(url).text
+    text = trafilatura.extract(html)
 
-    try:
-        # Create a query engine from the index
-        query_engine = index.as_query_engine(similarity_top_k=5, response_mode="compact")
+    if not text:
+        print("[WARNING] No text extracted from:", url)
 
-        # Query the engine
-        response_obj = query_engine.query(request.query)
+    return text
 
-        # Extract references from the response source nodes if they exist
-        context_references = []
-        if hasattr(response_obj, 'source_nodes'):
-            for node in response_obj.source_nodes:
-                # Assuming metadata contains chapter_id, section_title, page_number
-                # This will need to be correctly populated during content indexing
-                metadata = node.metadata
-                context_references.append(
-                    ContextReference(
-                        chapter_id=metadata.get("chapter_id", "unknown"),
-                        section_title=metadata.get("section_title", "unknown"),
-                        page_number=metadata.get("page_number", 0),
-                    )
-                )
 
-        return QueryResponse(response=str(response_obj), context_references=context_references)
-    except Exception as e:
-        # Log the error for debugging
-        print(f"Error in query endpoint: {str(e)}")
-        # Return a meaningful response even if RAG fails
-        fallback_response = "I'm sorry, I couldn't find specific information about that topic in the book. However, I'm here to help answer your questions about Physical AI & Humanoid Robotics. Could you try rephrasing your question?"
-        return QueryResponse(response=fallback_response, context_references=[])
+# -------------------------------------
+# Step 3 — Chunk the text
+# -------------------------------------
+def chunk_text(text, max_chars=1200):
+    chunks = []
+    while len(text) > max_chars:
+        split_pos = text[:max_chars].rfind(". ")
+        if split_pos == -1:
+            split_pos = max_chars
+        chunks.append(text[:split_pos])
+        text = text[split_pos:]
+    chunks.append(text)
+    return chunks
 
-# --- Health Check Endpoint (Optional but Recommended) ---
-@app.get("/health")
-async def health_check():
-    return {"status": "ok", "message": "FastAPI RAG Chatbot is running."}
 
+# -------------------------------------
+# Step 4 — Create embedding
+# -------------------------------------
+def embed(text):
+    response = cohere_client.embed(
+        model=EMBED_MODEL,
+        input_type="search_query",  # Use search_query for queries
+        texts=[text],
+    )
+    return response.embeddings[0]  # Return the first embedding
+
+
+# -------------------------------------
+# Step 5 — Store in Qdrant
+# -------------------------------------
+def create_collection():
+    print("\nCreating Qdrant collection...")
+    qdrant.recreate_collection(
+        collection_name=COLLECTION_NAME,
+        vectors_config=VectorParams(
+        size=1024,        # Cohere embed-english-v3.0 dimension
+        distance=Distance.COSINE
+        )
+    )
+
+def save_chunk_to_qdrant(chunk, chunk_id, url):
+    vector = embed(chunk)
+
+    qdrant.upsert(
+        collection_name=COLLECTION_NAME,
+        points=[
+            PointStruct(
+                id=chunk_id,
+                vector=vector,
+                payload={
+                    "url": url,
+                    "text": chunk,
+                    "chunk_id": chunk_id
+                }
+            )
+        ]
+    )
+
+
+# -------------------------------------
+# MAIN INGESTION PIPELINE
+# -------------------------------------
+def ingest_book():
+    urls = get_all_urls(SITEMAP_URL)
+
+    create_collection()
+
+    global_id = 1
+
+    for url in urls:
+        print("\nProcessing:", url)
+        text = extract_text_from_url(url)
+
+        if not text:
+            continue
+
+        chunks = chunk_text(text)
+
+        for ch in chunks:
+            save_chunk_to_qdrant(ch, global_id, url)
+            print(f"Saved chunk {global_id}")
+            global_id += 1
+
+    print("\n✔️ Ingestion completed!")
+    print("Total chunks stored:", global_id - 1)
+
+
+if __name__ == "__main__":
+    ingest_book()

@@ -154,7 +154,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Robotics Book, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Barirah Mansoor. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

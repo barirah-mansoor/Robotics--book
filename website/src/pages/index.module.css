@@ -16,7 +16,7 @@
 }
 
 [data-theme='dark'] .heroBanner {
-  background: linear-gradient(135deg, #4a0025 0%, #2a0016 100%); /* Dark pink gradient */
+  background: linear-gradient(135deg, #4a0025 0%, #880e4f 100%); /* Dark pink gradient */
 }
 
 .heroContent {
@@ -30,7 +30,7 @@
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
-  color: #f48fb1; /* Light pink in light mode */
+  color: #ec4899; /* Pink in light mode */
 }
 
 [data-theme='dark'] .hero__title {
@@ -111,7 +111,7 @@
 .backgroundElement {
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(29, 78, 216, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(244, 143, 177, 0.1) 0%, rgba(240, 98, 146, 0.05) 100%);
   animation: float 6s ease-in-out infinite;
 }
 
@@ -151,11 +151,11 @@
 /* Chapters Section */
 .chaptersSection {
   padding: 6rem 0;
-  background: linear-gradient(135deg, #fff5f7 0%, #f8bbd0 100%); /* Light pink gradient */
+  background: linear-gradient(135deg, #fff5f7 0%, #fde0e6 100%); /* Light pink gradient */
 }
 
 [data-theme='dark'] .chaptersSection {
-  background: linear-gradient(135deg, #4a0025 0%, #2a0016 100%); /* Dark pink gradient */
+  background: linear-gradient(135deg, #2a0016 0%, #4a0025 100%); /* Dark pink gradient */
 }
 
 .sectionHeader {
@@ -166,12 +166,12 @@
 .sectionTitle {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #880e4f; /* Dark pink */
+  color: #c2185b; /* Dark pink */
   margin-bottom: 1rem;
 }
 
 [data-theme='dark'] .sectionTitle {
-  color: #fde0e6; /* Light pink in dark mode */
+  color: #f8bbd0; /* Light pink in dark mode */
 }
 
 .sectionSubtitle {
@@ -182,7 +182,7 @@
 }
 
 [data-theme='dark'] .sectionSubtitle {
-  color: #f8bbd0; /* Lighter pink in dark mode */
+  color: #fde0e6; /* Lighter pink in dark mode */
 }
 
 /* Chapters Grid */
@@ -225,7 +225,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%);
+  background: linear-gradient(90deg, #ec4899 0%, #d946ef 100%);
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -236,7 +236,7 @@
 
 [data-theme='dark'] .chapterCard--pink {
   background: #4a0025; /* Dark pink background */
-  border: 1px solid rgba(244, 143, 177, 0.2);
+  border: 1px solid rgba(248, 187, 208, 0.2);
 }
 
 .chapterCard--pink .chapterId {
@@ -276,7 +276,7 @@
 
 .chapterDescription {
   font-size: 1.1rem;
-  color: #880e4f; /* Dark pink */
+  color: #c2185b; /* Dark pink */
   margin-bottom: 1.5rem;
   line-height: 1.6;
 }
@@ -295,7 +295,7 @@
 }
 
 [data-theme='dark'] .chapterMeta {
-  border-top: 1px solid #880e4f; /* Dark pink border in dark mode */
+  border-top: 1px solid #c2185b; /* Dark pink border in dark mode */
 }
 
 .chapterId {
@@ -324,11 +324,11 @@
 /* Chatbot Section */
 .chatbotSection {
   padding: 6rem 0;
-  background: linear-gradient(135deg, #fff5f7 0%, #f8bbd0 100%); /* Light pink gradient */
+  background: linear-gradient(135deg, #fff5f7 0%, #fde0e6 100%); /* Light pink gradient */
 }
 
 [data-theme='dark'] .chatbotSection {
-  background: linear-gradient(135deg, #4a0025 0%, #2a0016 100%); /* Dark pink gradient */
+  background: linear-gradient(135deg, #2a0016 0%, #4a0025 100%); /* Dark pink gradient */
 }
 
 .chatbotContainer {

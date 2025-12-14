@@ -47,15 +47,14 @@ const Chatbot: React.FC = () => {
     setIsLoading(true);
 
     try {
-      // In a real implementation, this would call your FastAPI backend
-      // For now, we'll simulate a response
-      const response = await fetch('https://humaniod-robotics-book-production.up.railway.app/query', {
+      // Call our local RAG API backend
+      const response = await fetch('http://localhost:8000/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          query: inputValue,
+          message: inputValue,
           user_id: 'website-user',
         }),
       });

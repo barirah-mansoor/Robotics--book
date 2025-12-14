@@ -4,7 +4,7 @@
  * work well for content-centric websites.
  */
 
-/* Enhanced color scheme with modern gradients and light pink colors */
+/* Enhanced color scheme with modern gradients and pink colors */
 :root {
   --ifm-color-primary: #f48fb1; /* Light pink */
   --ifm-color-primary-dark: #f06292; /* Slightly darker pink */
@@ -48,7 +48,7 @@
   --ifm-h4-font-size: 1.25rem;
 }
 
-/* Dark mode enhancements with light pink theme */
+/* Dark mode enhancements with pink theme */
 [data-theme='dark'] {
   --ifm-color-primary: #f8bbd0; /* Light pink in dark mode */
   --ifm-color-primary-dark: #f48fb1;
@@ -753,11 +753,11 @@
 /* Enhanced homepage chapter cards */
 .homepage-chapters {
   padding: 4rem 0;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  background: linear-gradient(135deg, #fff5f7 0%, #fde0e6 100%);
 }
 
 [data-theme='dark'] .homepage-chapters {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(135deg, #4a0025 0%, #2a0016 100%);
 }
 
 /* Modern animations */

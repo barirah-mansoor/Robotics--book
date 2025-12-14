@@ -52,14 +52,14 @@ const FloatingChatbot: React.FC = () => {
     setIsLoading(true);
 
     try {
-      // Call the FastAPI backend
-      const response = await fetch('https://humaniod-robotics-book-production.up.railway.app/query', {
+      // Call our local RAG API backend
+      const response = await fetch('http://localhost:8000/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          query: inputValue,
+          message: inputValue,
           user_id: 'website-user',
         }),
       });

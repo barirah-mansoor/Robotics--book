@@ -13,28 +13,49 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  Create as many sidebars as you want.
  */
 const sidebars: SidebarsConfig = {
-  // By default, Docusaurus generates a sidebar from the docs folder structure
+  // Manual sidebar organization following book structure
   tutorialSidebar: [
-    'introduction-to-physical-ai',
-    'robot-hardware-mechanics',
-    'robot-operating-systems-ros',
-    'robot-perception-sensors',
-    'robot-control-planning',
-    'robot-applications-integration',
-  ],
-
-  // But you can create a sidebar manually
-  /*
-  tutorialSidebar: [
-    'intro',
-    'hello',
     {
       type: 'category',
-      label: 'Tutorial',
-      items: ['tutorial-basics/create-a-document'],
+      label: 'Part I: Foundations',
+      collapsed: false,
+      items: [
+        'introduction-to-physical-ai',
+        'basics-of-humanoid-robotics',
+        'ros2-fundamentals',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Part II: Implementation',
+      collapsed: false,
+      items: [
+        'digital-twin-simulation',
+        'vision-language-action-systems',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Part III: Advanced Topics',
+      collapsed: false,
+      items: [
+        'capstone-ai-robot-pipeline',
+      ],
+    },
+    // Legacy content that might need reorganization
+    {
+      type: 'category',
+      label: 'Supplementary Materials',
+      collapsed: true,
+      items: [
+        'robot-hardware-mechanics',
+        'robot-operating-systems-ros',
+        'robot-perception-sensors',
+        'robot-control-planning',
+        'robot-applications-integration',
+      ],
     },
   ],
-   */
 };
 
 export default sidebars;
